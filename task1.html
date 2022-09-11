@@ -1,0 +1,104 @@
+<style>
+    div#d1{
+        width : 100%;
+        height : 90%;
+    /*	background-color : #ffa284; */
+    background-image: url("stadium0.jpg");
+        border: 5px ridge ;
+        margin-left :0px  ;
+        padding-left : 0px ;
+    }
+    div#d2{
+        position : absolute;
+        bottom :0% ;
+        background-color : red;
+        width :15%;
+        height : 5%;
+    }
+    div#d3{
+        width : 30px;
+        height : 30px;
+        border-radius : 50%;
+    }
+    img#im{
+        width : 30px;
+        height : 30px;
+        border-radius : 50% ;
+    
+    
+    }
+    
+    div#d4{
+            width : 30%;
+        
+        position : fixed;
+        left : 45%;
+            
+    }
+    div#d5{
+    width : 10%;
+    height : 10%;
+    background-color : rgb(157, 215, 236);
+    position : fixed;
+    bottom :10%;
+    left : 10px;
+    
+    text-align: center;
+    font-size: 2em;
+    text-decoration-color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    border : 5px  ridge ;
+    }
+    
+    </style>
+    
+    
+    
+    
+    <body>
+    
+        <div  id = "d1"  >
+            <div id ="d3"  ><img src ="ball.jpg"  id ="im"   onclick="score()"  /><br/></div>
+            
+            <div  id ="d5"> <b>Score</b><br/><span id ="sp">0</span> </div>
+        </div><br/>
+            <div id = "d4">
+            <button onclick="startGame()">Start</button>
+            <button onclick="stopGame()">Stop</button>
+        </div>
+    
+    </body>
+    <script>
+        let scorePoints=document.getElementById("sp");
+        let liveScore=0;
+        scorePoints.innerHTML= liveScore;
+        var stop;
+        function startGame(){
+            const d=document.getElementById("d3");
+            const dd=document.getElementById("d1");
+            rh = Math.floor(Math.random() *  dd.offsetHeight );
+            rw = Math.floor(Math.random() * dd.offsetWidth);
+        
+            d.style.position = "absolute";
+        
+            d.style.top = rh - 20 ;
+            d.style.left = rw - 20;
+            //setTimeout (startGame , 2000);
+                stop=setTimeout (startGame , 1000);
+        }
+        
+        function stopGame(){
+            clearTimeout(stop);
+        
+        }
+        function score(){
+            //alert(liveScore);
+          liveScore += 10;
+          scorePoints.innerHTML= liveScore;
+         //document.write(livescore); 
+        
+        }
+        
+        
+        </script>
+        
